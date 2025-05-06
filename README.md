@@ -1,4 +1,5 @@
 data/physiological_signals_30sn_reduced_no2.csv
+
 Il dataset già filtrato (solo finestre di 30 s), pronto per il training.
 
 src/Train_Model.py
@@ -12,7 +13,9 @@ Addestra la Random Forest sul dataset intero
 
 Salva il modello finale in model/rf_best.pkl
 
+
 src/New_Data_Predictions.py
+
 Un piccolo script “in potenza” per eventuali nuove predizioni:
 carica rf_best.pkl, legge un CSV con colonne eda,bvp,temp e genera un file con probabilità di stress.
 
@@ -29,15 +32,12 @@ Clona il repo:
 git clone https://github.com/AndreaCarlini01/Stress_analysis_And_Prediction.git
 cd Stress_analysis_And_Prediction
 Crea un virtualenv Python (3.10+):
-
-
 python -m venv venv
+
+
 Attiva il virtualenv:
-
 venv\Scripts\activate
-macOS/Linux
 
-source venv/bin/activate
 Installa le librerie:
 
 pip install -r requirements.txt
