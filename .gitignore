@@ -1,0 +1,16 @@
+# Virtualenv
+venv/
+
+# IDE IntelliJ / PyCharm
+.idea/
+*.iml
+
+# File Python compilati
+__pycache__/
+*.py[cod]
+
+# Dati grezzi CSV
+*.csv
+
+# Modello (se non lo versioni)
+model/rf_best.pkl
