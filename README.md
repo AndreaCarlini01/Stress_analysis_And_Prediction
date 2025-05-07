@@ -41,11 +41,15 @@ venv\Scripts\activate
 Installa le librerie:
 
 pip install -r requirements.txt
-3. Come addestrare il modello
+Come addestrare il modello
 Tutto il lavoro di training è già pronto in src/Train_Model.py.
 Basta far partire:
 
 python src/Train_Model.py
+
+Ma prima bisgona modificare il percorso del file in cui viene salvato il dataset presente nella cartella "data"
+Modificarlo in Train_Model una delle prime righe.
+
 Cosa succede:
 
 Viene caricato data/physiological_signals_30sn_reduced_no2.csv
