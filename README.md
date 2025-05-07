@@ -26,7 +26,7 @@ Qui dentro ci sono le versioni esatte di Python e librerie usate (pandas, scikit
 .gitignore
 Per escludere venv, file IDE, dati grezzi o modelli troppo grandi.
 
-2. Setup dell’ambiente
+ Setup dell’ambiente
 Clona il repo:
 
 git clone https://github.com/AndreaCarlini01/Stress_analysis_And_Prediction.git
