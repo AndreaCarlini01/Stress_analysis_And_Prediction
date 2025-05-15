@@ -18,7 +18,7 @@ from sklearn.model_selection import GroupKFold, cross_val_score
 from sklearn.metrics import (accuracy_score, roc_auc_score,
                              log_loss, make_scorer)
 
-# ---------- 1. carica il CSV ----------
+#  carica il CSV 
 csv = Path(r"C:\Users\bombe\OneDrive\Desktop\DatiStress\DataSet1"
            r"\physiological_signals_30sn_reduced_no2.csv")
 df  = pd.read_csv(csv)
@@ -28,8 +28,8 @@ X      = df[feature_cols]
 y      = df["emotion"]
 groups = df["subjet"]
 
-# ---------- 2. (facoltativo) scaler ----------
-use_scaler = False  # se vuoi standardizzare metti True
+# scaler 
+use_scaler = False  
 if use_scaler:
     preproc = ColumnTransformer(
         [("num", StandardScaler(), feature_cols)],
@@ -38,7 +38,7 @@ if use_scaler:
 else:
     preproc = "passthrough"
 
-# ---------- 3. modello con i parametri migliori ----------
+#  modello con i parametri migliori 
 rf = RandomForestClassifier(
     n_estimators      = 400,
     max_depth         = None,
@@ -54,7 +54,7 @@ pipe = Pipeline([
     ("rf",   rf)
 ])
 
-# ---------- 4. Leave-One-Subject-Out CV ----------
+#   Leave-One-Subject-Out CV 
 gkf = GroupKFold(n_splits=groups.nunique())
 
 acc  = cross_val_score(pipe, X, y,
@@ -80,9 +80,9 @@ print(f"Accuracy media : {acc.mean():.3f}")
 print(f"ROC-AUC  media : {auc.mean():.3f}")
 print(f"Log-loss media : {logl.mean():.4f}")
 
-# ---------- 5. addestra su TUTTO il dataset e salva ----------
+#  addestra su TUTTO il dataset e salva 
 pipe.fit(X, y)                       # un solo training finale
-joblib.dump(pipe, "rf_best.pkl")     # modello + scaler (se presente)
+joblib.dump(pipe, "rf_best.pkl")     # modello + scaler 
 print("Modello salvato in rf_best.pkl")
 
 
